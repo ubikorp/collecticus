@@ -1,0 +1,54 @@
+<div class="search-box">
+  <h3>Enter your search criteria below:</h3><br/>
+  <% form_tag(search_path, :method => :post) do -%>
+    <%= text_field_tag(:query, params[:query], :size => 40) %><br/>
+    <%= select_tag(:target, options_for_select(SearchController::SEARCH_TARGETS.keys, params[:target])) %>
+    <%= submit_tag('Submit') %>
+  <% end -%>
+</div>
+
+<% unless @books.nil? -%>
+  <div class="search-results">
+    <h3>Your search for <strong><%=h params[:query] %></strong> matched <%= @books.size %> books.</h3>
+    <ul>
+    <% @books.each do |result| -%>
+      <li class="search-result"><%= link_to(result.name, comicbook_path(result)) %></li>
+    <% end -%>
+    </ul>
+    
+    <% if @books.page_count != @books.first_page -%>
+      <div class="paginator">
+        <ul>
+          <% if @books.previous_page? -%>
+            <li class="nextpage">
+              <%= link_to '&#171;', { :page => @books.previous_page } %>
+            </li>
+          <% else -%>
+            <li class="disablepage">&#171;</li>
+          <% end -%>
+
+          <% last_page = 0 -%>
+          <% windowed_pagination_links(@books, :window_size => 2, :link_to_current_page => true, :always_show_anchors => true) do |n| -%>
+            <% if @books.page == n -%>
+              <li class="currentpage"><%= n %></li>
+            <% else -%>
+              <li><%= "..." if last_page+1 < n %>
+                <%= link_to n, :query => params[:query], :target => params[:target], :page => n %>
+              </li>
+            <% end -%>
+            <% last_page = n -%>
+          <% end -%>
+
+          <% if @books.next_page? -%>
+            <li class="nextpage">
+              <%=  link_to '&#187;', { :page => @books.next_page } %>
+            </li>
+          <% else -%>
+            <li class="disablepage">&#187;</li>
+          <% end -%>
+        </ul>
+      </div>
+    <% end -%>
+
+  </div>
+<% end -%>

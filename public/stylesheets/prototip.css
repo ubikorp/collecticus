@@ -1,0 +1,55 @@
+/* Prototip.css */
+
+.tooltip { width: 150px; color: #000;}
+.tooltip .title { background: #258; font: italic 17px Georgia, serif; padding: 5px;}
+.tooltip .content { background: #F8D323; font: 11px Arial, Helvetica, sans-serif; padding: 5px;}
+
+.comictip {
+    width: 200px; 
+    color: #000; 
+    font-family: verdana, arial, helvetica, sans-serif;
+}
+
+.comictip .title {
+    color: #F8D323;
+    border-left: 4px solid #000;
+    border-right: 4px solid #000;
+    border-bottom: 4px solid #000;
+    background-color: #258; 
+    font-size: 11px; 
+    font-weight: bold; 
+    padding: 0 5px 5px 5px;
+    margin: 0;
+}
+
+.comictip .content {
+    border-left: 4px solid #000;
+    border-right: 4px solid #000;
+    background-color: #EED030; 
+    font-size: 10px; 
+    padding: 5px 5px 0 5px;
+    margin: 0;
+}
+
+.comictip .thumbnail {
+    float: left;
+    margin-right: 5px;
+    width: 80px;
+    height: 120px;
+}
+
+.comictip .top {
+    background: url(/images/tooltip-top.gif) no-repeat bottom;
+    height: 13px;
+    width: 200px;
+}
+
+.comictip .bottom {
+    background: url(/images/tooltip-bottom.gif) no-repeat bottom;
+    height: 40px;
+    width: 200px;
+}
+
+.clear {
+    clear: both;
+}

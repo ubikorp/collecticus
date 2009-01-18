@@ -1,0 +1,57 @@
+/* IE6 sucks. compensate for missing max-width */
+#container {
+  color: #000000;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  position: relative;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  width: expression(document.body.clientWidth > 1200 ? '1200px' : 'auto');
+}
+
+/* set overflow to hidden */
+#container .spacer-top {
+  overflow: hidden;
+}
+
+#container .spacer {
+  overflow: hidden;
+}
+
+/* the following fixes the stupid IE6 3px float issue, sigh */
+.breadcrumb-left {
+  background: url(/images/nav-left.gif) no-repeat;
+  height: 72px;
+  width: 50px;
+  float: left;
+}
+
+.breadcrumb-right {
+  background: url(/images/nav-right.gif) no-repeat;
+  height: 91px;
+  width: 245px;
+  float: right;
+}
+
+* html .breadcrumb-left {
+  margin-right: -3px;
+}
+
+* html .breadcrumb-right {
+  margin-left: -3px;
+}
+
+#breadcrumb {
+  background: url(/images/nav-tile.gif) repeat-x;
+  height: 72px;
+  font-size: 0.8em;
+  margin: 0 0 50px 0;
+  padding: 48px 0 5px 0;
+}
+
+.breadcrumb-container {
+  margin: -5px 0 10px 0;
+}
+/* --- */

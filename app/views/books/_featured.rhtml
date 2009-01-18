@@ -1,0 +1,26 @@
+<div class="book-featured" id="b_<%= h featured.permalink.underscore %>">
+  <div class="infobox">
+    <div class="thumbnail"><%= cover_image_with_link(featured, :md) %></div>
+    <%= my_collection_link(featured) %>
+  </div>
+  <% if featured.episode? -%>
+    <div class="title">
+      <%= link_to("#{featured.series.name} \##{featured.number}", comicbook_path(featured)) %>
+    </div>
+  <% else -%>
+    <div class="title">
+      <%= link_to("#{featured.name}", comicbook_path(featured)) %>
+    </div>
+  <% end -%>
+  <div class="details">
+    <div class="publisher">Publisher: <%= link_to(featured.publisher.name, comic_path(featured.publisher)) %></div>
+    <div class="comments">Comments: <%= link_to(featured.comments.count, comicbook_path(featured)) %></div> 
+    <div class="pulls">Pulls: <%= featured.users.length %></div>
+    <div class="rating">Rating: <%= featured.rating == 0 ? "unrated" : number_with_precision(featured.rating, 1) %></div> 
+  </div>
+  <div class="description"><%= truncate(featured.description, 250) %></div>
+  <% if user_admin? -%>
+    <div class="admin-link"><%= link_to('&raquo; Edit Book', comicbook_path(featured, :action => 'edit')) %></div>
+    <div class="admin-link"><%= link_to('&raquo; Delete Book', comicbook_path(featured), :method => 'delete', :confirm => 'Are you sure?') %></div>
+  <% end -%>
+</div>

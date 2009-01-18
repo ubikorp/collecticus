@@ -1,0 +1,37 @@
+<tr class="book-table-row" id="tr-<%= h table_row.permalink.underscore %>">
+  <% if logged_in? && local_assigns.has_key?(:inc_status) -%>
+    <td class="status"><%= my_collection_link(table_row, false) %></td>
+  <% elsif logged_in? && local_assigns.has_key?(:inc_delete) -%>
+    <td class="status"><%= delete_book_link(table_row) %></td>
+  <% end -%>
+  <td class="title" id="t_<%= h table_row.permalink.underscore %>">
+    <% if table_row.episode? -%>
+      <%= link_to("#{table_row.series.name} \##{table_row.number}", comicbook_path(table_row), :id => "b_" + h(table_row.permalink.underscore)) %>
+    <% else -%>
+      <%= link_to("#{table_row.name}", comicbook_path(table_row), :id => "b_" + h(table_row.permalink.underscore)) %>
+    <% end -%>
+    <span class="publisher">
+      (<%= link_to(table_row.publisher.name, comic_path(table_row.publisher)) %>)
+      <% if user_admin? -%>
+        (<%= link_to("Edit", comicbook_path(table_row, :action => "edit")) %>)
+        (<%= link_to("Delete", comicbook_path(table_row), :method => "delete", :confirm => "Are you sure?") %>)
+        <% end -%>
+    </span>
+    <script type="text/javascript">
+      var tooltip_<%=h table_row.permalink.underscore %> = new Tip(
+        'b_<%=h table_row.permalink.underscore %>', 
+        '<%= escape_javascript(truncate(table_row.description, 250)) %>', 
+        { title: '<%= escape_javascript(table_row.name) %>', 
+          <% unless table_row.cover_image.nil? -%>
+            thumbnail: '<%= table_row.cover_image.public_filename(:md) %>', 
+          <% end -%>
+          className: 'comictip', 
+          target: 't_<%=h table_row.permalink.underscore %>',
+          hook: { target: 'topRight', tip: 'bottomLeft' }, 
+          offset: { x: -50, y: 30 }});
+    </script>
+  </td>
+  <td class="comments"><%= link_to(table_row.comments.count, comicbook_path(table_row)) %></td>
+  <td class="pulls"><%= table_row.users.length %></td>
+  <td class="rating"><%= table_row.rating == 0 ? "-" : number_with_precision(table_row.rating, 1) %></td>
+</tr>

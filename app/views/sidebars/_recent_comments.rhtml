@@ -1,0 +1,11 @@
+<div class="sideshadow">
+  <div class="sideblock">
+    <div class="title">Recent Comments</div>
+    <ul>
+      <% Comment.most_recent(5).each do |comment| -%>
+        <li><%= link_to("#{comment.book.name} by #{comment.user.login}", comicbook_path(comment.book)) %></li>
+      <% end -%>
+      <li style="display: none"></li>
+    </ul>
+  </div>
+</div>

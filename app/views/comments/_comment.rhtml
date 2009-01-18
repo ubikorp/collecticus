@@ -1,0 +1,7 @@
+<div class="comment <%= "comment-alt" if comment_counter.modulo(2).zero? %>">
+  <div class="bodytext"><%= comment.body.to_html %></div>
+  <div class="user">
+    &raquo; Posted <%= time_ago_in_words(comment.created_at) %> ago
+    by <%= link_to(comment.user.login, user_path(comment.user)) %>
+  </div>
+</div>

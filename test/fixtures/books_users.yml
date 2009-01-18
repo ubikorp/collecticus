@@ -1,0 +1,29 @@
+quentin_green_lantern_20:
+  book_id: 4
+  user_id: 1
+  created_at: <%= 2.days.ago.to_s :db %>
+
+aaron_green_lantern_20:
+  book_id: 4
+  user_id: 2
+  created_at: <%= 20.hours.ago.to_s :db %>
+
+aaron_green_lantern_21:
+  book_id: 9
+  user_id: 2
+  created_at: <%= 19.hours.ago.to_s :db %>
+
+quentin_green_lantern_21:
+  book_id: 9
+  user_id: 1
+  created_at: <%= 8.hours.ago.to_s :db %>
+
+quentin_ultimate_fantastic_four_vol_7_god_war_tp:
+  book_id: 10
+  user_id: 1
+  created_at: <%= 6.hours.ago.to_s :db %>
+
+quentin_wolverine_56:
+  book_id: 5
+  user_id: 1
+  created_at: <%= 6.hours.ago.to_s :db %>

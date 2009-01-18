@@ -1,0 +1,32 @@
+<div class="data-right">
+  <div class="register-pitch">
+    <h1>Why register? Why not!</h1>
+    If you create an account with us, you'll be able to:
+    <ul>
+      <li>Create and manage your own pull lists</li>
+      <li>Rate and discuss comics with others</li>
+      <li>Be part of a growing comic book community!</li>
+    </ul>
+    Sign up now and we'll immediately log you in to your new account. What have you got to lose?*
+    <br/><br/>
+    <div class="little-note">* We won't sell your email address to spammers. Promise! We hate those guys.</div>
+  </div>
+</div>
+<div class="data-left">
+  <%= error_messages_for :user %>
+  <% form_for(:user, :url => account_path) do |f| -%>
+  <p><label for="user_login">Login</label><br/>
+  <%= f.text_field :login %></p>
+
+  <p><label for="user_email">Email</label><br/>
+  <%= f.text_field :email %></p>
+
+  <p><label for="user_password">Password</label><br/>
+  <%= f.password_field :password %></p>
+
+  <p><label for="user_password_confirmation">Confirm Password</label><br/>
+  <%= f.password_field :password_confirmation %></p>
+
+  <p><%= submit_tag 'Sign up' %></p>
+  <% end -%>
+</div>

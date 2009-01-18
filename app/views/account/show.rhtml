@@ -1,0 +1,32 @@
+<table class="user-profile-table" cellspacing="0" cellpadding="0">
+  <tr class="first-row">
+    <th class="nickname">Nickname</th>
+    <td class="nickname"><%=h current_user.login %></td>
+  </tr>
+  <tr>
+    <th class="location">Location</th>
+    <td class="location"><%=h current_user.location || "*" %></td>
+  </tr>
+  <tr>
+    <th class="interests">Interests</th>
+    <td class="interests"><%=h current_user.interests || "*" %></td>
+  </tr>
+  <tr>
+    <th class="bio">Bio</th>
+    <td class="bio"><%=h current_user.bio || "*" %></td>
+  </tr>
+  <tr>
+    <th class="my-collection">My Collection</th>
+    <td class="my-collection"><%=h current_user.books.count %> Books in <%=h current_user.series.length %> Series</td>
+  </tr>
+  <tr class="last-row">
+    <th class="average-rating">Average Rating</th>
+    <td class="average-rating"><%= number_with_precision(current_user.average_rating, 1) %></td>
+  </tr>
+</table>
+<br/>
+<div class="user-link">
+  <%= link_to('&raquo; Edit Account Preferences', edit_account_path) %><br/>
+  <%= link_to('&raquo; View My Public Profile', user_path(current_user)) %><br/>
+  <%= link_to('&raquo; View My Pull List', pulls_account_path) %>
+</div>

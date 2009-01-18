@@ -1,0 +1,1 @@
+/usr/local/bin/mongrel_cluster_ctl start -c /usr/local/www/apps/zapdaggit/current/config

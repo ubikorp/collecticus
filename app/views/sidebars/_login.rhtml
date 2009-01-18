@@ -1,0 +1,15 @@
+<div class="sideshadow">
+  <div class="sideblock">
+    <div class="title">Join the Adventure!</div>
+    <% form_tag(session_path) do -%>
+      <ul>
+        <li><label for="login">Login</label></li>
+        <li><%= text_field_tag('login', '', :size => 15) %></li>
+        <li><label for="password">Password</label></li>
+        <li><%= password_field_tag('password', '', :size => 15) %></li>
+        <li><%= submit_tag('Log in') %></li>
+        <li><%= link_to('&raquo; Create a New Account', new_account_path) %></li>
+      </ul>
+    <% end -%>
+  </div>
+</div>

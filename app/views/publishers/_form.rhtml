@@ -1,0 +1,12 @@
+<%= error_messages_for(:publisher, :publisher_logo) %>
+<% form_for(:publisher, :url => url, :html => html) do |publisher| %>
+  <p><label for="publisher_name">Name: </label><br/>
+  <%= publisher.text_field(:name) %></p>
+  
+  <% fields_for(:publisher_logo) do |publisher_logo| -%>
+    <p>Upload Publisher Logo:<br/>
+    <%= publisher_logo.file_field(:uploaded_data) %></p>
+  <% end -%>
+
+  <%= submit_tag %>
+<% end -%>

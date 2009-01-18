@@ -1,0 +1,3 @@
+<%= render(:partial => 'books/form', :locals => {
+    :url => (@title.nil? ? comic_books_path(@publisher) : comic_title_episodes_path(@publisher, @title)),
+    :html => {:method => :post, :multipart => true} }) %>

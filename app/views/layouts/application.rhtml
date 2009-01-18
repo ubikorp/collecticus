@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title><%= App::Config.app_name %> :: <%=h page_title %></title>
+  <%= stylesheet_link_tag('layout', 'forms', 'prototip') %>
+  <%= javascript_include_tag('prototype', 'prototip') %>
+  <!--[if IE]>
+    <%= stylesheet_link_tag('ie') %>
+  <![endif]-->
+  <link rel="shortcut icon" href="/favicon.ico" />
+</head>
+<body>
+  <div id="container">
+    <div class="spacer-top">
+      <div id="header">
+        <div class="content">
+          <div id="search-nav">
+            <% form_tag(search_path, :method => :post) do -%>
+              <%= text_field_tag(:squery, 'search...', :size => 20, :onfocus => "this.value='';return false;") %>
+              <button type="submit" id="search-button" name="search-button" value=""></button>
+            <% end -%>
+            <div class="advanced-search"><%= link_to('&#187; Advanced Search', search_path) %></div>
+          </div>
+          <div id="logo"><%= link_to(image_tag('header-logo.jpg', :border => 0, :width => "345px", :height => "60px", :alt => App::Config.app_name), start_path) %></div>
+          <div id="login-status">
+            secret identity: 
+            <% if logged_in? -%>
+              <%= link_to(current_user.login, account_path) %> 
+              [<%= link_to('logout', logout_path) %>]
+            <% else -%>
+              unknown
+              [<%= link_to('login', login_path) %> /
+              <%= link_to('register', new_account_path) %>]
+            <% end -%>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+      <div class="breadcrumb-container">
+        <div class="breadcrumb-left"></div>
+        <div class="breadcrumb-right"></div>
+        <div id="breadcrumb"><%= breadcrumb %></div>
+      </div>
+    </div>
+    <div class="spacer">
+      <div id="middle">
+        <%= start_tabnav :main %>
+          <div class="clear"></div>
+          <div id="sidebar">
+            <%= render_sidebars %>
+          </div>
+          <div id="main">
+            <div class="shadow">
+              <div class="content">
+                <div id="page-title"><%=h page_title %></div>
+                <%= render(:partial => 'shared/flash_alert') %>
+                <div id="page-data">
+                  <%= yield %>
+                </div>
+                <div class="clear"></div>
+              </div>
+            </div>
+          <%= end_tabnav %>
+        </div>
+        <div id="footer">
+          <div id="bottom-nav" class="navigation-horizontal">
+            <ul>
+              <li><%= link_to('about', 'http://info.collectic.us/pages/about') %> | </li>
+              <li><%= link_to('contact', 'http://info.collectic.us/contact') %> | </li>
+              <li><%= link_to('blog', 'http://info.collectic.us') %> | </li>
+              <li><%= link_to('help!', 'http://info.collectic.us/help') %></li>
+            </ul>
+            <div id="copyright">Developed by <%= link_to('Nth Metal Interactive', 'http://www.nthmetal.com') %></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+    var pageTracker = _gat._getTracker("UA-2398620-2");
+    pageTracker._initData();
+    pageTracker._trackPageview();
+  </script>
+</body>
+</html>
+

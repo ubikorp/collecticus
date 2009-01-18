@@ -1,0 +1,12 @@
+<div id="main-nav" class="navigation-horizontal">
+  <ul>
+    <li><%= link_to('browse titles', comics_path) %> | </li>
+    <li><%= link_to('releases', start_path) %></li>
+  <% if logged_in? -%>
+    <li> | <%= link_to('my account', account_path) %> [<%= link_to('logout', logout_path) %>]</li>
+  <% else -%>
+    <li> | <%= link_to('login', login_path) %></li>
+    <li> | <%= link_to('register', new_account_path) %></li>
+  <% end -%>
+  </ul>
+</div>

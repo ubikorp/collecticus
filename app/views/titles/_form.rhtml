@@ -1,0 +1,10 @@
+<%= error_messages_for(:series) %>
+<% form_for(:series, @title, :url => url, :html => html, :object => @title) do |series| %>
+  <p>Publisher: <br/>
+  <strong><%=h @publisher.name %></strong></p>
+  
+  <p><label for="series_name">Name: </label><br/>
+  <%= series.text_field(:name) %></p>
+
+  <%= submit_tag %>
+<% end -%>

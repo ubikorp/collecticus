@@ -1,0 +1,62 @@
+TODO
+  - tests for SimpleSidebarHelper?
+	- passing parameters
+	- rendering widgets
+	- refactor render_sidebars into the library
+	- rendering should, really, be assigned to template variables
+
+RELEASE NOTES
+
+12 July 2006:
+  Moved to opensvn.csie.org
+
+30 June 2006: version 0.51
+  [4880] created instance methods to call the class methods
+  [4881] removed UnknownSidebarCondition -- can't think of a way to check methods from class scope
+  added test_helper (partially borrowed from ScopedAccess)
+  made tests completely self-sufficient
+
+19 June 2006: version 0.5
+  created a bunch of tests for the functionality of the SimpleSidebar module.
+  added a sidebars_path class variable to make it easy to switch from default app/views/sidebars
+  fixed sidebar_delete (thanks to testing!)
+  fixed sidebar_move (thanks to testing!)
+  changed normalization of conditions to be less anal
+  
+
+19 June 2006: version 0.45
+  announced on IRC and added to the Rails wiki
+  cleaned up component rendering to just pass straight on to render_component
+  cleaned up README and rdoc.
+  removed UnknownSidebarComponent -- let render_component complain
+
+19 June 2006: version 0.42
+	imported into RubyForge (svn://rubyforge.org//var/svn/simplesidebar)
+	fixed install.rb
+
+18 June 2006: version 0.41
+	added sidebar_move for kicks and giggles
+	
+18 June 2006: version 0.4
+	added normalisation for options and conditions
+	added some error handling to prevent bad sidebars
+
+18 June 2006: version 0.35
+	added sidebar sorting
+
+17 June 2006: version 0.3
+	added method conditions (:if and :unless)
+
+16 June 2006: version 0.22
+	added conditional clearing
+	added action conditionals
+
+16 June 2006: version 0.2
+	components!
+	changed sidebar syntax to be one id per method call, now takes the :component option
+
+15 June 2006: version 0.15a
+	cleaned up a few things, reduced syntax to just sidebar and sidebar_delete
+
+14 June 2006: version 0.1a
+	class methods for adding, removing and setting the sidebar inherited attribute

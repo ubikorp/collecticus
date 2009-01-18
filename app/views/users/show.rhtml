@@ -1,0 +1,59 @@
+<table class="user-profile-table" cellspacing="0" cellpadding="0">
+  <tr class="first-row">
+    <th class="nickname">Nickname</th>
+    <td class="nickname"><%=h @user.login %></td>
+  </tr>
+  <tr>
+    <th class="location">Location</th>
+    <td class="location"><%=h @user.location || "*" %></td>
+  </tr>
+  <tr>
+    <th class="interests">Interests</th>
+    <td class="interests"><%=h @user.interests || "*" %></td>
+  </tr>
+  <tr>
+    <th class="bio">Bio</th>
+    <td class="bio"><%=h @user.bio || "*" %></td>
+  </tr>
+  <tr>
+    <th class="my-collection">My Collection</th>
+    <td class="my-collection"><%=h @user.books.count %> Books in <%=h @user.series.length %> Series</td>
+  </tr>
+  <tr class="last-row">
+    <th class="average-rating">Average Rating</th>
+    <td class="average-rating"><%= number_with_precision(@user.average_rating, 1) %></td>
+  </tr>
+</table>
+<div class="user-profile">
+  <div class="profile-left">
+    <div class="recent-favorites">
+      <div class="label">Recent Ratings:</div>
+      <% if @user.recent_ratings(5).empty? -%>unavailable<% end -%>
+      <% @user.recent_ratings(5).each do |rating| -%>
+        <div class="recent-rating">
+          <%= link_to("#{rating.rateable.name} (#{number_with_precision(rating.rating, 1)})", comicbook_path(rating.rateable)) %>
+        </div>
+      <% end -%>
+    </div>
+    <div class="recent-comments">
+      <div class="label">Recent Comments:</div>
+      <% if @user.recent_comments(5).empty? -%>unavailable<% end -%>
+      <% @user.recent_comments(5).each do |comment| -%>
+        <div class="recent-comment">
+          <%= link_to("#{comment.book.name}", comicbook_path(comment.book)) %>
+        </div>
+      <% end -%>
+    </div>
+  </div>
+  <div class="profile-right">
+    <div class="recent-pulls">
+      <div class="label">This Week's Pull List:</div>
+      <% if @user.books.released_this_week.empty? -%>unavailable<% end -%>
+      <% @user.books.released_this_week.each do |book| -%>
+        <div class="recent-pull">
+          <%= link_to("#{book.name}", comicbook_path(book)) %>
+        </div>
+      <% end -%>
+    </div>
+  </div>
+</div>

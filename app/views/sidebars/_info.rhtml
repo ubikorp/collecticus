@@ -1,0 +1,11 @@
+ <div class="sideshadow">
+    <div class="sideblock">
+      <div class="feedTitle">Collectic.us News</div>
+      <ul>
+        <% FeedSource.find_by_name('Collectic.us News').recent_articles(App::Config.sidebar_info_size).each do |article| -%>
+          <li><%= link_to(article.title, article.link) %></li>
+        <% end -%>
+          <li style="display: none"></li>
+      </ul>
+    </div>
+  </div>

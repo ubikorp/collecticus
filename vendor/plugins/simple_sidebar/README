@@ -1,0 +1,95 @@
+SimpleSidebar
+=============
+
+=CONTACT DETAILS
+
+  Author: Matthew Abonyi
+  IRC: mabs29 @ #rubyonrails
+  E-Mail Address: developer/0x40/poetryleague/0x2E/com
+  License: MIT
+
+=DESCRIPTION
+
+The eponymous SimpleSidebar is a quick and dirty way to create sidebars. The system follows the
+premise that there are many kinds of sidebars, some more like templates, some happy in your
+layouts, some better as partials or components. Sidebars are, actually, a little of each;
+a sidebar can be a flat partial of links, an ad, a poll or a dynamic menu. You could use any
+of these methods, but once you start mixing static/dynamic and crossing MVC, it seems like the
+component style of rendering becomes dominant. This isn't the most efficient or easy to
+manage and SimpleSidebar recognises that. Sidebars are like layouts and filters: they are managed
+by the controller, depending on the action and controller being called, and, like layouts,
+are a class-level declaration. In other words, you declare your sidebars and their conditions in
+each controller and the sidebars miraculously appear in your view. Like associations in your
+ActiveRecords, there are sidebars in your ActionControllers.
+
+=FEATURES
+
+  - easy sidebar partial rendering
+  - uncomplicated rendering
+  - component rendering option
+  - conditions based on current action (:only, :except)
+  - conditions based on methods returning true/false (:if, :unless)
+  - sidebar sorting and precision arrangement
+
+=BEST PRACTICE
+
+It is recommended that you also create a SidebarsController which uses the same directory as
+the SimpleSidebar plugin. That way, your component and partial sidebars are all in one place.
+However, the component option allows you to specify any controller and action (in fact, you
+must specify both).
+
+=REQUIREMENTS
+
+The app/views/sidebars directory must exist because this is where your sidebar partials
+are stored. It is created automatically if you use ./script/plugin install.
+
+=INSTALLATION
+
+To install SimpleSidebar, either install it as a plugin, in which case it will be mixed into
+the ActionController::Base class automatically, or place it in your library and include it in
+your ApplicationController like so:
+
+  class ApplicationController < ActionController::Base
+    helper SimpleSidebarHelper
+    include SimpleSidebar
+  end
+
+=USAGE
+
+Once SimpleSidebar is installed, the most common method you will call is the 'sidebar' class
+method. It appends the sidebar to the currently defined sidebars for that controller and responds
+to a set of conditions (:only, :except, :if and :unless) which determine whether certain parts
+will appear or not:
+
+    sidebar :search
+    sidebar :general, :except => :login
+    sidebar :login, :unless => :logged_in?
+    sidebar :poll, :component => { :controller => '/poll', :action => 'current' }
+
+Important: Arbitrary options are kept but not used by the SimpleSidebar system (see 
+SimpleSidebar.sidebar_sort):
+
+    sidebar :sbfooter, :arbitrary => :bottom
+
+This option can then be used in conjunction with SimpleSidebar#sidebar_sort. There is one caveat:
+All sidebars are given a :priority based on when they were defined. You can use this to reverse order, randomise or whatever you like, just as though you were using Array#sort (you are).
+
+Explanations:
+  1) the top of the sidebar will have app/views/sidebars/_search.rhtml
+  2) the next, _general.rhtml, will appear unless the current action's name is 'login'
+  3) the _login.rhtml sidebar will appear below (1) and (2) unless the user is already logged in
+  4) the :poll sidebar will appear with the results of PollController#current.
+  5) the :sbfooter sidebar will appear last; the :arbitrary option is stored.
+
+In your view, you would put:
+
+  <%= render_sidebars %>
+
+According to the above example code, it will render the following files in this order:
+
+  app/views/sidebars/_login.rhtml (unless the logged_in? method returns true)
+  app/views/sidebars/_general.rhtml (only for the index action on this controller)
+  app/views/polls/current.rhtml
+  app/views/sidebars/_sbfooter.rhtml
+
+It's that easy.

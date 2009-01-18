@@ -1,0 +1,13 @@
+<br/><%= formatted_book_rating(asset) %>/5.0 Stars<br/>
+<ul class='star-rating'>
+  <li class='<%= rated_class_name(asset) %>' style='width:<%= (book_rating(asset) * 25).to_i -%>px;'>
+    Currently <%= formatted_book_rating(asset) %>/5.0 Stars.
+  </li>
+  <% if logged_in? -%>
+    <li><%= rate_star(asset, 1, "one-star") %></li>
+    <li><%= rate_star(asset, 2, "two-stars") %></li>
+    <li><%= rate_star(asset, 3, "three-stars") %></li>
+    <li><%= rate_star(asset, 4, "four-stars") %></li>
+    <li><%= rate_star(asset, 5, "five-stars") %></li>
+  <% end -%>
+</ul>

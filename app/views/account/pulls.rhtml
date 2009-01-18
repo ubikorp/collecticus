@@ -1,0 +1,27 @@
+<div class="releases my-pulls">
+  <% @releases.each_with_index do |books, index| -%>
+    <div id="releases-<%= @release_dates[index].strftime('%m-%d-%Y') %>" class="release-date">
+      <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <th class="title" colspan="2">Released on <%= @release_dates[index].strftime('%A, %B %d, %Y') %></th>
+          <th class="comments" width="10%">Comm</th>
+          <th class="pulls" width="10%">Pulls</th>
+          <th class="rating" width="10%">Rating</th>
+        </tr>
+        <%= render(:partial => 'books/table_row', :collection => books, :locals => { :inc_delete => true }) %>
+        <tr class="add-books-row">
+          <td colspan="5" class="add-books">
+            <%= link_to('&raquo; Add Books', releases_path(
+              :year  => @release_dates[index].strftime('%Y'),
+              :month => @release_dates[index].strftime('%m'),
+              :day   => @release_dates[index].strftime('%d'))) %>
+            </td>
+        </tr>
+      </table>
+    </div>
+  <% end -%>
+  <div class="user-link">
+    <%= link_to('&raquo; View Previous Pulls', pulls_account_path(:prev => 1)) unless @prev %>
+    <%= link_to('&raquo; View Current Pulls', pulls_account_path) if @prev %>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+# == Schema Information
+# Schema version: 20
+#
+# Table name: feed_articles
+#
+#  id             :integer(11)   not null, primary key
+#  feed_source_id :integer(11)   
+#  title          :string(255)   
+#  created_at     :datetime      
+#  published_at   :datetime      
+#  author         :string(255)   
+#  link           :string(255)   
+#  content        :text          
+#  category       :string(255)   
+#
+
+collecticus_welcome:
+  id: 1
+  title: Welcome to Collectic.us
+  created_at: <%= 5.days.ago.to_s :db %>
+  published_at: <%= 5.days.ago.to_s :db %>
+  author: nap
+  link: http://info.collectic.us/articles/1
+  content:
+  category:
+  
+comicbloc_review:
+  id: 2
+  title: Review of some comic
+  created_at: <%= 2.days.ago.to_s :db %>
+  published_at: <%= 3.days.ago.to_s :db %>
+  author: jimmy
+  link: http://www.comicbloc.com/articles/111
+  content:
+  category:
+  
+ign_contest:
+  id: 3
+  title: Check out this new thing we got
+  created_at: <%= 2.days.ago.to_s :db %>
+  published_at: <%= 2.days.ago.to_s :db %>
+  author: staff
+  link: http://comics.ign.com/some/new/article
+  content:
+  category:
+  
+collecticus_new_feature:
+  id: 4
+  title: New widgets available
+  created_at: <%= 2.days.ago.to_s :db %>
+  published_at: <%= 2.days.ago.to_s :db %>
+  author: nap
+  link: http://info.collectic.us/articles/2
+  content:
+  category:

@@ -1,0 +1,20 @@
+<div class="book-series">
+  <div class="infobox">
+    <div class="thumbnail"><%= latest_cover_image_with_link(title, :md) %></div>
+  </div>
+  <div class="title"><%= link_to(title.name, comic_title_episodes_path(title.publisher, title)) %></div>
+  <div class="details">
+    <div class="publisher-name">Publisher: <%=h title.publisher.name %></div>
+    <div class="rating">Average Rating: <%= title.rating == 0 ? "unrated" : number_with_precision(title.rating, 1) %></div>
+    <div class="total-number">Total Number Indexed: <%=h title.episodes.count %></div>
+    <% if logged_in? -%>
+      <div class="total-collected">Number In Your Collection: <%=h title.episodes.collected_by(current_user).length %></div>
+    <% end -%>
+    <% if !title.latest_episode.nil? -%>
+      <div class="latest-issue">Current Issue: <%= link_to(title.latest_episode.name, comicbook_path(title.latest_episode)) %></div>
+    <% end -%>
+    
+    <div class="admin-link"><%= link_to('&raquo; Edit Title', edit_comic_title_path(title.publisher, title)) %></div>
+    <div class="admin-link"><%= link_to('&raquo; Delete Title', comic_title_path(title.publisher, title), :method => "delete", :confirm => "Are you sure? This will remove all books associated with this title!") %></div>
+  </div>
+</div>

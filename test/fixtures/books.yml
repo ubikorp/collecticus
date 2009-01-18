@@ -1,0 +1,146 @@
+# == Schema Information
+# Schema version: 20
+#
+# Table name: books
+#
+#  id           :integer(11)   not null, primary key
+#  number       :integer(11)   
+#  series_id    :integer(11)   
+#  created_at   :datetime      
+#  updated_at   :datetime      
+#  published_on :datetime      
+#  description  :text          
+#  type         :string(255)   
+#  name         :string(255)   
+#  permalink    :string(255)   
+#  publisher_id :integer(11)   
+#  talent       :string(255)   
+#
+
+amazing_spider_man_540:
+  id: 1
+  number: 540
+  permalink: amazing-spider-man-540
+  series_id: 1
+  description: Spidey wears the black costume again. Black is slimming.
+  talent: Written by Paul Simon. Art by Art Garfunkel.
+  created_at: <%= 3.days.ago.to_s :db %>
+  updated_at: <%= 3.days.ago.to_s :db %>
+  published_on: <%= 11.days.ago.to_s :db %>
+  publisher_id: 1
+  type: Episode
+
+amazing_spider_man_541:
+  id: 2
+  number: 541
+  permalink: amazing-spider-man-541
+  series_id: 1
+  description: Peter Parker eats a grilled cheese sandwich.
+  talent: Written by Paul "Firecrackers" Simon. Art by Art "Where Are They Now" Garfunkel.
+  created_at: <%= 3.days.ago.to_s :db %>
+  updated_at: <%= 3.days.ago.to_s :db %>
+  published_on: <%= 3.days.from_now.to_s :db %>
+  publisher_id: 1
+  type: Episode
+
+action_comics_854:
+  id: 3
+  number: 854
+  permalink: action-comics-854
+  series_id: 2
+  description: Superman's parents are, like, farmers.
+  talent: Ma Kent and Pa Kent.
+  created_at: <%= 3.days.ago.to_s :db %>
+  updated_at: <%= 3.days.ago.to_s :db %>
+  published_on: <%= Time.today %>
+  publisher_id: 2
+  type: Episode
+
+green_lantern_20:
+  id: 4
+  number: 20
+  permalink: green-lantern-20
+  series_id: 3
+  description: Green Lantern (Hal Jordan) GETS IT ON.
+  talent: Mr Writer and Mr Artist. Cover art by Wesley Willis.
+  created_at: <%= 3.days.ago.to_s :db %>
+  updated_at: <%= 3.days.ago.to_s :db %>
+  published_on: <%= 5.weeks.ago.to_s :db %>
+  publisher_id: 2
+  type: Episode
+
+wolverine_56:
+  id: 5
+  number: 56
+  permalink: wolverine-56
+  series_id: 4
+  description: Wolverine uses his claws on some bad guy.
+  talent: Mr Writer and Mr Artist.
+  created_at: <%= 3.days.ago.to_s :db %>
+  updated_at: <%= 3.days.ago.to_s :db %>
+  published_on: <%= 2.days.from_now.to_s :db %>
+  publisher_id: 1
+  type: Episode
+
+the_trials_of_shazam_vol_1:
+  id: 6
+  name: The Trials of Shazam Vol. 1
+  permalink: the-trials-of-shazam-vol-1
+  description: Collects the first six issues of some comic book mini-series.
+  talent: Written by The Wizard. Art by Billy Batson.
+  created_at: <%= 2.days.ago.to_s :db %>
+  updated_at: <%= 2.days.ago.to_s :db %>
+  published_on: <%= 4.days.from_now.to_s :db %>
+  publisher_id: 2
+  type: SoloBook
+
+detective_comics_832:
+  id: 7
+  number: 832
+  permalink: detective-comics-832
+  series_id: 5
+  description: Batman and Detective Chimp team up.
+  talent: Mr Writer and Mr Artist.
+  created_at: <%= 2.days.ago.to_s :db %>
+  updated_at: <%= 2.days.ago.to_s :db %>
+  published_on: <%= 4.weeks.ago.to_s :db %>
+  publisher_id: 2
+  type: Episode
+
+detective_comics_833:
+  id: 8
+  number: 833
+  permalink: detective-comics-833
+  series_id: 5
+  description: Bruce Wayne hangs out with Aquaman at a singles bar.
+  talent: Written by Wayne Bruce. Art by Arthur McArthur.
+  created_at: <%= 2.days.ago.to_s :db %>
+  updated_at: <%= 2.days.ago.to_s :db %>
+  published_on: <%= 1.days.ago.to_s :db %>
+  publisher_id: 2
+  type: Episode
+
+green_lantern_21:
+  id: 9
+  number: 21
+  permalink: green-lantern-21
+  series_id: 3
+  description: Yellow things from space attack Earth. Green Lantern must save the day.
+  talent: Mr Writer and Mr Artist.
+  created_at: <%= 2.days.ago.to_s :db %>
+  updated_at: <%= 2.days.ago.to_s :db %>
+  published_on: <%= 1.week.ago.to_s :db %>
+  publisher_id: 2
+  type: Episode
+
+ultimate_fantastic_four_vol_7_god_war_tp:
+  id: 10
+  name: Ultimate Fantastic Four Vol 7 God War Tp
+  permalink: ultimate-fantastic-four-vol-7-god-war-tp
+  description: Some junk about that dude from The Shield. And some war, too.
+  talent: Inky, Blinky, Pinky, and Clyde. Cover art by Sue.
+  created_at: <%= 2.days.ago.to_s :db %>
+  updated_at: <%= 2.days.ago.to_s :db %>
+  published_on: <%= 2.months.ago.to_s :db %>
+  publisher_id: 1
+  type: SoloBook

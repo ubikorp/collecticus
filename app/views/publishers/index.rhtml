@@ -1,0 +1,25 @@
+<% @publishers.each do |publisher| -%>
+  <div class="book-publisher">
+    <% unless publisher.publisher_logo.nil? -%>
+      <div class="logobox">
+        <div class="logo"><%= link_to(image_tag(publisher.publisher_logo.public_filename, :border => false), comic_path(publisher)) %></div>
+      </div>
+    <% end -%>
+    <div class="name"><%= link_to(publisher.name, comic_path(publisher)) %></div>
+    <div class="details">
+      <div class="total-number">Total Series Indexed: <%=h publisher.series.count %></div>
+      <div class="total-number">Total Episodes Indexed: <%=h publisher.episodes.count %></div>
+      <div class="total-number">One-Shots, Specials &amp; Trades: <%=h publisher.solobooks.count %></div>
+      <% if logged_in? -%>
+        <div class="total-collection">Number In Your Collection: <%=h current_user.books.by_publisher(publisher).length %></div>
+      <% end -%>
+      <% if user_admin? -%>
+        <div class="admin-link"><%= link_to('&raquo; Edit Publisher', edit_comic_path(publisher)) %></div>
+      <% end -%>
+      </div>
+  </div>
+<% end -%>
+
+<% if user_admin? -%>
+  <div class="admin-link"><%= link_to('&raquo; New Publisher', new_comic_path) %></div>
+<% end -%>

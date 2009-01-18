@@ -1,0 +1,5 @@
+quentin_admin:
+  user_id: 1
+  role_id: 1
+  created_at: <%= 5.days.ago.to_s :db %>
+  

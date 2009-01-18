@@ -1,0 +1,11 @@
+<div class="sideshadow">
+  <div class="sideblock">
+    <div class="title">Favorite Series</div>
+    <ul>
+      <% Series.top_rated(5).each do |series| -%>
+        <li><%= link_to(series.name, comic_title_episodes_path(series.publisher, series)) %></li>
+      <% end -%>
+      <li style="display: none"></li>
+    </ul>
+  </div>
+</div>

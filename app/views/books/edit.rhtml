@@ -1,0 +1,3 @@
+<%= render(:partial => 'books/form', :locals => {
+    :url => (@book.episode? ? comic_title_episode_path(@publisher, @title, @book) : comic_book_path(@publisher, @book)),
+    :html => {:method => :put, :multipart => true} }) %>

@@ -1,0 +1,22 @@
+<div class="releases book-index">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <th class="title" <% if logged_in? -%>colspan="2"<% end -%>>Title</th>
+      <th class="comments">Comm</th>
+      <th class="pulls">Pulls</th>
+      <th class="rating">Rating</th>
+    </tr>
+    <%= render(:partial => 'books/table_row', :collection => @books, :locals => { :inc_status => true }) %>
+  </table>
+  <%= render(:partial => "shared/paginate", :locals => { :collection => @books }) %>
+
+  <% if user_admin? -%>
+    <div class="admin-link">
+      <% if @title.nil? %>
+        <%= link_to('&raquo; New Book', new_comic_book_path(@publisher)) %>
+      <% else -%>
+        <%= link_to('&raquo; New Episode', new_comic_title_episode_path(@publisher, @title)) %>
+      <% end -%>
+    </div>
+  <% end -%>
+</div>

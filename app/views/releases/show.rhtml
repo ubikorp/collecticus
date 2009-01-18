@@ -1,0 +1,25 @@
+<div class="releases">
+  <div class="featured-books">
+    <% @books.each_with_index do |book, index| -%>
+      <% break if index >= App::Config.featured_books_size %>
+      <%= render(:partial => 'books/featured', :object => book) %>
+    <% end -%>
+  </div>
+  <div class="current-books">
+    <% if @books.size > App::Config.featured_books_size -%>
+      <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <th class="title" <% if logged_in? -%>colspan="2"<% end -%>>Title</th>
+          <th class="comments">Comm</th>
+          <th class="pulls">Pulls</th>
+          <th class="rating">Rating</th>
+        </tr>
+        <% @books.each_with_index do |book, index| -%>
+          <%= render(:partial => 'books/table_row', :object => book, :locals => { :inc_status => true }) if index >= App::Config.featured_books_size %>
+        <% end -%>
+      </table>
+    <% else -%>
+      <h2>No More Release Data Available.</h2>
+    <% end -%>
+  </div>
+</div>

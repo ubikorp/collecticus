@@ -1,0 +1,47 @@
+<div class="book-detailed">
+  <div class="infobox">
+    <div class="thumbnail"><%= cover_image_with_link(@book, :lg) %></div>
+    <%= my_collection_link(@book) %>
+    <div id="star-ratings-block"><%= render :partial => "ratings/rating", :locals => { :asset => @book } %></div>
+  </div>
+  <div class="details">
+    <% if @book.episode? -%>
+      <div class="title"><%= link_to(@book.series.name, comic_title_path(@book.series.publisher, @book.series)) %> #<%=h @book.number %></div>
+    <% else -%>
+      <div class="title"><%=h @book.name %></div>
+    <% end -%>
+    
+    <div class="talent"><%= @book.talent.to_html %></div>
+    <div class="description"><%= @book.description.to_html %></div>
+    <div class="date">
+      Published <%= link_to(@book.published_on.strftime("%B %d, %Y"), release_date_path(@book.published_on)) %>
+      by <%= link_to(@book.publisher.name, comic_path(@book.publisher)) %>
+    </div>
+    
+    <% if user_admin? -%>
+    <div class="admin-link"><%= link_to('&raquo; Edit Book', comicbook_path(@book, :action => 'edit')) %></div>
+    <div class="admin-link"><%= link_to('&raquo; Delete Book', comicbook_path(@book), :method => 'delete', :confirm => 'Are you sure?') %></div>
+    <% end -%>
+    
+    <div class="book-comments">
+      <% if @book.comments.length > 0 -%>
+        <div class="title">Comments (<%= @book.comments.length %>)</div>
+        <%= render(:partial => 'comments/comment', :collection => @book.comments) %><br/>
+      <% end -%>
+  
+      <div class="new-comment">
+        <h3>New Comment</h3><br/>
+        <% form_for(:comment, :url => comments_path(@book, :action => 'create'), :html => { :method => :post }) do |comment| -%> 
+          <%= logged_in? ? comment.text_area(:body, :rows => 12) : comment.text_area(:body, :rows => 12, :disabled => true) %>
+          <p><%= logged_in? ? submit_tag('Submit') : submit_tag('Submit', :disabled => true) %>
+          <span class="little-note">
+            &nbsp; <%= link_to('Textile enabled', 'http://hobix.com/textile/') %>
+            <% unless logged_in? -%>
+              &nbsp; | &nbsp; You must <%= link_to('login', login_path(:return => 'return')) %> to comment!
+            <% end -%>
+          </span></p>
+        <% end -%>
+      </div>
+    </div>
+  </div>
+</div>

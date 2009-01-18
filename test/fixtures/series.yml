@@ -1,0 +1,52 @@
+# == Schema Information
+# Schema version: 20
+#
+# Table name: series
+#
+#  id           :integer(11)   not null, primary key
+#  name         :string(255)   
+#  permalink    :string(255)   
+#  publisher_id :integer(11)   
+#  created_at   :datetime      
+#  updated_at   :datetime      
+#
+
+amazing_spider_man:
+  id: 1
+  name: Amazing Spider-man
+  permalink: amazing-spider-man
+  publisher_id: 1
+  created_at: <%= 7.days.ago.to_s :db %>
+  updated_at: <%= 7.days.ago.to_s :db %>
+
+action_comics:
+  id: 2
+  name: Action Comics
+  permalink: action-comics
+  publisher_id: 2
+  created_at: <%= 6.days.ago.to_s :db %>
+  updated_at: <%= 6.days.ago.to_s :db %>
+
+green_lantern:
+  id: 3
+  name: Green Lantern
+  permalink: green-lantern
+  publisher_id: 2
+  created_at: <%= 5.days.ago.to_s :db %>
+  updated_at: <%= 5.days.ago.to_s :db %>
+
+wolverine:
+  id: 4
+  name: Wolverine
+  permalink: wolverine
+  publisher_id: 1
+  created_at: <%= 4.days.ago.to_s :db %>
+  updated_at: <%= 4.days.ago.to_s :db %>
+
+detective_comics:
+  id: 5
+  name: Detective Comics
+  permalink: detective-comics
+  publisher_id: 2
+  created_at: <%= 3.days.ago.to_s :db %>
+  updated_at: <%= 3.days.ago.to_s :db %>

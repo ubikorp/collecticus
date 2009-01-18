@@ -1,0 +1,967 @@
+/* Page-level elements
+============================================================================= */
+html {
+  margin: 0;
+  padding: 0;
+  min-width: 900px;
+  font-size: 100%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: verdana, arial, helvetica, sans-serif;
+  color: #000000;
+  background: url(/images/fade.jpg) repeat-x;
+  background-color: #B3B7B1;
+  /*background-color: #95967C;*/
+  /*background-color: #AEB393;*/
+  height: 100%;
+}
+
+#container {
+  color: #000000;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  position: relative;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+}
+
+#container .spacer-top {
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+#container .spacer {
+  margin-left: 31px;
+  margin-right: 25px;
+}
+
+pre {
+   background-color: #FFFFFF;
+   border: solid 1px #000000;
+   color: #000000;
+   font-family: monospace;
+   margin: 0.5em;
+   padding: 0.5em;
+}
+
+a, a:link, a:visited, a:active {
+  color: #009;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  border: 0;
+}
+
+#main h1, #main h2, #main h3 {
+  font-weight: normal;
+  margin: 0;
+}
+
+#main h1 {
+  font-size: 1.3em;
+}
+
+#main h2 {
+  font-size: 1.2em;
+}
+
+#main h3 {
+  font-size: 1.1em;
+}
+
+/* Main body elements
+============================================================================= */
+#middle {
+  color: #000;
+  margin-top: 10px;
+  margin-bottom: 0.5em;
+  position: relative;
+  width: 100%;
+  font-size: 0.9em;
+}
+
+#main {
+  margin-right: 220px;
+  position: relative;
+  font-size: 0.9em;
+}
+
+#main .shadow {
+  background: #636761;
+  position: relative;
+  padding: 0;
+}
+
+#main .content {
+  border: 4px solid #000;
+  top: -7px;
+  left: -6px;
+  background: #FFFFFF;
+  position: relative;
+  padding: 0;
+}
+
+#sidebar {
+  width: 200px;
+  float: right;
+  position: relative;
+  font-size: 0.8em;
+}
+
+/* Tabbed Navigation
+============================================================================  */
+.tabnav {
+  margin: 0 220px 0 0;
+  padding: 0;
+  z-index: 1;
+  padding-left: 5px;
+}
+
+.tabnav ul {
+  margin: 0;
+  padding: 0;
+}
+
+.tabnav li {
+  list-style-type: none;
+  background: url(/images/tab-left.gif) no-repeat top left;
+  padding: 6px 5px 8px 13px;
+  margin-bottom: 1px !important;
+  margin-bottom: 0px;
+  float: left;
+}
+
+.tabnav li.active {
+  background: url(/images/tab-left-on.gif) no-repeat top left;
+  z-index: 2;
+  position: relative;
+  display: block;
+}
+
+.tabnav a, .tabnav a:visited, .tabnav a:active {
+  background: url(/images/tab-right.gif) no-repeat top right;
+  padding: 7px 15px 8px 2px;
+  color: #E0C010;
+  font-weight: bold;
+  font-size: 0.91em;
+  text-decoration: none;
+}
+
+.tabnav a.active, .tabnav a.active:visited, .tabnav a.active:active {
+  background: url(/images/tab-right-on.gif) no-repeat top right;
+  color: #F8D323;
+}
+
+.tabnav a:hover {
+  color: #F8D323;
+  text-decoration: none;
+}
+
+.tabnav a.active:hover {
+  color: #F8D323;
+}
+
+.tabnav_content {
+  z-index: 1;
+}
+
+/* Header elements
+============================================================================= */
+#header {
+  color: #F8D323;
+  background-color: #258;
+  position: relative;
+  width: auto !important;
+  width: 100%;
+}
+
+#header .content {
+  padding: 5px 23px;
+  font-size: 0.9em;
+  border-left: 5px solid black;
+  border-right: 5px solid black;
+  position: relative;
+}
+
+#header a {
+  color: #F8D323;
+  text-decoration: none;
+}
+
+#header a:hover {
+  text-decoration: underline;
+}
+
+#login-status {
+  margin-left: 15px;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.breadcrumb-container {
+  position: relative;
+  height: 91px;
+  vertical-align: top;
+  margin: -5px 0 10px 0;
+  width: 100%;
+}
+
+.breadcrumb-left {
+  background: url(/images/nav-left.gif) no-repeat;
+  height: 72px;
+  width: 50px;
+  float: left;
+}
+
+.breadcrumb-right {
+  background: url(/images/nav-right.gif) no-repeat;
+  height: 91px;
+  width: 245px;
+  float: right;
+}
+
+#breadcrumb {
+  background: url(/images/nav-tile.gif) repeat-x;
+  height: 72px;
+  font-size: 0.8em;
+  font-weight: bold;
+  margin: 0 245px 0 50px;
+  padding: 48px 0px 5px 0;
+  white-space: nowrap;
+}
+
+#breadcrumb a {
+  color: #000;
+}
+
+#search-nav {
+  margin-top: 0.5em;
+  margin-right: 10px;
+  text-align: right;
+  float: right;
+}
+
+#search-nav input {
+  font-size: 14px;
+  font-weight: bold;
+  height: 19px;
+}
+
+#search-button {
+  height: 25px;
+  width: 28px;
+  cursor: pointer;
+  border: none;
+  background: url(/images/search.gif) no-repeat top left;
+  text-indent: -9000px;
+  margin: 0 0 0 -18px;
+  padding: 0;
+  vertical-align: bottom;
+}
+
+#search-nav .advanced-search {
+  font-weight: bold;
+  margin-top: 3px;
+}
+
+/* Footer elements
+============================================================================= */
+#footer {
+  color: #000;
+  position: relative;
+  font-weight: bold;
+  margin: 5px 220px 0 -6px;
+  font-size: 0.9em;
+}
+
+#bottom-nav ul {
+  float: right;
+}
+
+#footer a {
+  color: #036;
+  text-decoration: none;
+}
+
+#footer a:hover {
+  color: #036;
+  text-decoration: underline;
+}
+
+#copyright {
+  padding-left: 5px;
+}
+
+/* Comments
+============================================================================  */
+.book-comments {
+  margin-top: 20px;
+}
+
+.book-comments .title {
+  font-size: 1.1em;
+}
+
+.comment {
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.comment-alt {
+  border: 1px dotted black;
+  background-color: #f5f5f5;
+}
+
+.comment .bodytext p {
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
+}
+
+.comment .user {
+  font-size: 0.8em;
+  color: #666666;
+  padding-top: 10px;
+}
+
+.book-comments .new-comment textarea {
+  width: 400px;
+  height: 100px;
+}
+ 
+/* Sidebar block display
+============================================================================  */
+.sideshadow {
+  min-height: 100px;
+  height: auto !important;
+  height: 100px;
+  margin-bottom: 30px;
+  background: #636761;
+  position: relative;
+}
+
+.sideblock {
+  min-height: 100px;
+  height: auto !important;
+  height: 100px;
+  border: 4px solid #000;
+  top: -6px;
+  left: -6px;
+  background: #f5f5f5;
+  position: relative;
+}
+
+.sideblock ul, .sideblock ul li {
+  list-style-type: none;
+  margin-left: 0;
+  padding: 0 5px 5px 5px;
+}
+
+.sideblock ul {
+  padding-bottom: 0;
+}
+
+.sideblock ul li a {
+  text-decoration: none;
+}
+
+.sideblock ul li a:hover {
+  text-decoration: none;
+  background-color: #F8D323;
+}
+
+.sideblock .title, .sideblock .feedTitle {
+  padding: 5px;
+  font-weight: bold;
+  background: #258;
+  color: #F8D323;
+  border-bottom: 4px solid #000;
+}
+
+/* General navigation elements
+============================================================================= */
+.navigation-vertical {
+  text-align: left;
+  padding: 5px;
+} 
+
+.navigation-horizontal {
+  padding: 5px;
+}
+  
+.navigation-vertical ul, .navigation-vertical ul li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.navigation-horizontal ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: inline;
+  white-space: nowrap;
+}
+
+.navigation-horizontal ul li {
+  margin-left: 0;
+  display: inline;
+}
+
+.navigation-horizontal a {
+  text-decoration: none;
+}
+
+.navigation-horizontal a:hover {
+  text-decoration: underline;
+}
+
+/* General Page Content
+==============================================================================================  */
+#page-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  background: #258;
+  color: #F8D323;
+  border-bottom: 4px solid #000;
+  padding: 5px;
+}
+
+#page-data {
+  padding: 10px;
+  margin: 0;
+}
+
+.clear { 
+  clear: both;
+  display: block;
+  visibility: hidden;
+  font-size: 1px !important;
+  height: 1px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.little-note {
+  font-size: 10px;
+}
+
+.admin-link, .user-link {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.data-left {
+  width: 40%;
+  float: left;
+  position: relative;
+}
+
+.data-right {
+  width: 57%;
+  float: right;
+  position: relative;
+}
+
+/* Notice and Error blocks for Flash alert display
+============================================================================= */
+div.alert {
+  font-size: 1em;
+  margin: 1em;
+  padding: 5px;
+  border: 2px solid #000;
+  color: #009;
+}
+
+div.error {
+  background: #FEE;
+}
+
+div.notice {
+  background: #CFC;
+}
+
+/* Pagination
+============================================================================  */
+.paginator {
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.paginator ul {
+  margin: 0;
+  padding: 0;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.paginator ul li {
+  list-style-type: none;
+  display: inline;
+  padding: 2px;
+}
+
+.paginator a, .paginator a:visited {
+  padding: 0 5px;
+  text-decoration: none;
+  color: #009;
+  border: 1px dotted #000000;
+}
+
+.paginator a:hover, .paginator a:active {
+  color: #F8D323;
+  background-color: #258;
+}
+
+.paginator li.currentpage {
+  font-weight: bold;
+  padding: 0 5px;
+  background-color: #258;
+  color: #FFFFFF;
+  border: 1px solid #000;
+}
+
+.paginator li.disablepage {
+  padding: 0 5px;
+  color: #666666;
+}
+
+.paginator li.nextpage {
+  font-weight: bold;
+}
+
+/* Search box display
+============================================================================  */
+.search-box {
+  padding: 10px 10px 10px 10px;
+  width: 90%;
+}
+
+.search-box input {
+  margin-bottom: 10px;
+  vertical-align: top;
+}
+
+.search-results {
+  border-top: 2px solid #E8EEF3;
+  padding: 10px 10px 10px 10px;
+}
+
+.search-results ul li.search-result {
+  margin-bottom: 2px;
+}
+
+/* Ratings
+============================================================================  */
+.star-rating {
+  list-style: none;
+  margin: 0 0 0 -3px;
+  padding: 0px;
+  width: 125px;
+  height: 25px;
+  position: relative;
+  background: url(/images/star_rating.png) top left repeat-x;        
+}
+
+.star-rating li {
+  padding: 0px;
+  margin: 0px;
+  /*\*/
+  float: left;
+  /* */
+}
+
+.star-rating li a {
+  display: block;
+  width: 20px;
+  height: 25px;
+  text-decoration: none;
+  text-indent: -9000px;
+  z-index: 20;
+  position: absolute;
+  padding: 0px;
+}
+
+.star-rating li a:hover {
+  background: url(/images/star_rating.png) left bottom;
+  z-index: 2;
+  left: 0px;
+  border:none;
+}
+
+.star-rating a.one-star {
+  left: 0px;
+}
+
+.star-rating a.one-star:hover {
+  width: 20px;
+}
+
+.star-rating a.two-stars {
+  left: 25px;
+}
+
+.star-rating a.two-stars:hover {
+  width: 50px;
+}
+
+.star-rating a.three-stars {
+  left: 50px;
+}
+
+.star-rating a.three-stars:hover {
+  width: 75px;
+}
+
+.star-rating a.four-stars {
+  left: 75px;
+}
+
+.star-rating a.four-stars:hover {
+  width: 100px;
+}
+
+.star-rating a.five-stars {
+  left: 100px;
+}
+
+.star-rating a.five-stars:hover {
+  width: 125px;
+}
+
+.star-rating li.current-rating {
+  background: url(/images/star_rating.png) left center;
+  position: absolute;
+  height: 25px;
+  display: block;
+  text-indent: -9000px;
+  z-index: 1;
+}
+
+.star-rating li.current-rating-rated {
+  background: url(/images/star_rated.png) top left;
+  position: absolute;
+  height: 25px;
+  display: block;
+  text-indent: -9000px;
+  z-index: 1;
+}
+
+/* Publishers
+============================================================================  */
+.book-publisher {
+  padding: 10px;
+  border-bottom: 2px solid #E8EEF3; 
+  font-size: 0.9em;
+  min-height: 100px;
+  height: auto !important;
+  height: 100px;
+}
+
+.book-publisher .details {
+  margin-bottom: 10px;
+}
+
+.book-publisher .name {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.book-publisher .logobox {
+  float: right;
+  margin-left: 20px;
+  min-height: 100px;
+  height: auto !important;
+  height: 100px;
+}
+
+/* Series
+============================================================================  */
+.book-series {
+  padding: 10px;
+  border-bottom: 2px solid #E8EEF3; 
+  font-size: 0.9em;
+  min-height: 130px;
+  height: auto !important;
+  height: 130px;
+}
+
+.book-series .infobox {
+  float: right;
+  margin-left: 20px;
+  padding-bottom: 10px;
+  min-height: 130px;
+  height: auto !important;
+  height: 130px;
+}
+
+.book-series .title {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin: 0;
+}
+
+.book-series .details {
+  margin-bottom: 10px;
+  /* margin-left: 10px; */
+}
+
+.book-series .publisher-name, .book-series .total-number, .book-series .latest-issue {
+  margin-top: 10px;
+}
+
+/* Books/Episodes
+============================================================================  */
+.book-detailed {
+  padding: 10px;
+  font-size: 1em;
+  position: relative;
+  min-height: 150px;
+  height: auto !important;
+  height: 150px;
+}
+
+.book-detailed .infobox {
+  float: left;
+  width: 120px;
+}
+
+.book-detailed .details {
+  margin: 0;
+  padding-left: 140px;
+}
+
+.book-detailed .title, .book-detailed .talent, .book-detailed .description, .book-detailed .date {
+  margin-bottom: 10px;
+}
+
+.book-detailed .title {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.book-detailed .thumbnail {
+  margin-bottom: 2px;
+}
+
+.book-featured .title {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.book-featured .infobox {
+  float: left;
+  width: 80px; /* md */
+  margin: 0 10px 5px 0;
+}
+
+.book-featured .details {
+  margin-bottom: 10px;
+}
+
+.collection-status-ok {
+  text-align: center;
+  text-transform: capitalize; 
+  font-size: 0.95em;
+  color: #F8D323;
+  background-color: #258;
+  border: 2px solid #000;
+  padding: 2px;
+  white-space: nowrap;
+}
+
+.collection-status-add, .collection-status-del {
+  text-align: center;
+  text-transform: capitalize;
+  text-decoration: none;
+  font-size: 0.95em;
+  color: #009;
+  background-color: #F8D323;
+  border: 2px solid #000;
+  padding: 2px;
+  white-space: nowrap;
+}
+
+.collection-status-del {
+  font-weight: bold;
+}
+
+.collection-status-add:hover, .collection-status-del:hover {
+  text-decoration: none;
+  color: #F8D323;
+  background-color: #258;
+}
+
+.collection-status-add a, .collection-status-del a {
+  text-decoration: none;
+}
+
+.collection-status-add:hover a, .collection-status-del:hover a {
+  color: #F8D323;
+}
+
+/* Releases List & My Pull List
+============================================================================  */
+
+.releases {
+  padding: 5px;
+}
+
+.releases .featured-books {
+  width: 40%;
+  float: left;
+  position: relative;
+}
+
+.releases .current-books {
+  width: 57%;
+  float: right;
+  position: relative;
+}
+
+.releases .book-featured {
+  margin-bottom: 20px;
+}
+
+.releases table th {
+  vertical-align: top;
+  text-align: left;
+  padding: 5px;
+  color: #F8D323;
+  background-color: #258;
+  font-size: 0.9em;
+}
+
+.releases table th.comments, .releases table th.pulls, .releases table th.rating {
+  text-align: center;
+}
+
+.book-table-row td {
+  vertical-align: top;
+  text-align: left;
+  padding: 5px 5px 10px 0;
+  border-bottom: 2px solid #E8EEF3;
+}
+
+.book-table-row td.status {
+  border-bottom: none;
+  width: 25px;
+}
+
+.book-table-row td.comments, .book-table-row td.pulls, .book-table-row td.rating {
+  background-color: #E8EEF3;
+  padding-right: 0;
+  border-bottom: 2px solid #FFF;
+  text-align: center;
+}
+
+.book-table-row .title {
+  font-size: 1.1em;
+}
+
+.book-table-row .title .publisher {
+  font-size: 0.9em;
+}
+
+.my-pulls table, .book-index table {
+  width: 100% !important;
+  width: 99%;
+}
+
+.my-pulls table td.add-books {
+  font-weight: bold;
+  padding: 5px;
+}
+
+.my-pulls table th.title {
+  font-size: 1.1em;
+}
+
+.release-date {
+  margin-bottom: 20px;
+}
+
+/* User Profile display
+============================================================================  */
+table.user-profile-table {
+  margin: 0;
+  padding: 0;
+}
+
+.user-profile-table th {
+  text-align: left;
+  vertical-align: top;
+  padding: 5px;
+  color: #F8D323;
+  background-color: #258;
+  border-bottom: 2px solid #E8EEF3;
+  white-space: nowrap;
+}
+
+.user-profile-table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 5px 5px 10px 10px;
+  background: #E8EEF3;
+  width: 100%;
+}
+
+.user-profile-table tr.first-row th, .user-profile-table tr.first-row td {
+  border-top: none;
+}
+
+.user-profile-table tr.last-row th, .user-profile-table tr.last-row td {
+  border-bottom: none;
+}
+
+.user-profile {
+  padding: 10px;
+}
+
+.user-profile .profile-left {
+  float: left;
+  width: 45%;
+  vertical-align: top;
+  padding-right: 20px;
+  position: relative;
+}
+
+.user-profile .profile-right {
+  float: right;
+  width: 45%;
+  vertical-align: top;
+  padding-left: 20px;
+  position: relative;
+}
+
+.user-profile .label {
+  font-weight: bold;
+  text-decoration: underline;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+/* Misc marketing copy, etc.
+============================================================================  */
+.register-pitch {
+  margin-top: 20px;
+}
+
+.register-pitch h1 {
+  color: #036;
+  font-weight: bold;
+  padding-bottom: 20px;
+}

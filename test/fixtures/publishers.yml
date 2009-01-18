@@ -1,0 +1,25 @@
+# == Schema Information
+# Schema version: 20
+#
+# Table name: publishers
+#
+#  id         :integer(11)   not null, primary key
+#  name       :string(255)   
+#  permalink  :string(255)   
+#  created_at :datetime      
+#  updated_at :datetime      
+#
+
+marvel:
+  id: 1
+  name: Marvel Comics
+  permalink: marvel-comics
+  created_at: <%= 7.days.ago.to_s :db %>
+  updated_at: <%= 7.days.ago.to_s :db %>
+dc:
+  id: 2
+  name: DC Comics
+  permalink: dc-comics
+  created_at: <%= 6.days.ago.to_s :db %>
+  updated_at: <%= 6.days.ago.to_s :db %>
+  

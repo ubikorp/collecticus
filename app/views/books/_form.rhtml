@@ -1,0 +1,44 @@
+<%= error_messages_for(:book, :cover_image) %>
+<% form_for(:book, :url => url, :html => html) do |book| -%>
+
+  <p>Publisher: <br/>
+  <%= link_to(@book.publisher.name, comic_titles_path(@book.publisher)) %></p>
+  
+  <% if @book.episode? -%>
+      <p>Series: <br/>
+      <%= link_to(@book.series.name, comic_title_path(@book.series.publisher, @book.series)) %></p>
+    <% if @book.new_record? -%>
+      
+      <p><label for="book_number">Number: </label><br/>
+      <%= book.text_field(:number) %></p>
+      
+    <% else -%>
+      <p>Number: <br/><%=h @book.number %></p>
+    <% end -%>
+    
+  <% else -%>
+    <% if @book.new_record? -%>
+      <p><label for="book_name">Name: </label><br/>
+      <%= book.text_field(:name) %></p>
+      
+    <% else -%>
+      <p><%=h @book.name %></p>
+    <% end -%>
+  <% end -%>
+  
+  <p><label for="book_talent">Talent: </label><br/>
+  <%= book.text_area(:talent, :rows => 4) %></p>
+  
+  <p><label for="book_description">Description: </label><br/>
+  <%= book.text_area(:description, :rows => 20) %></p>
+
+  <p>Published on: <br/>
+  <%= book.date_select(:published_on) %></p>
+
+  <% fields_for(:cover_image) do |cover_image| -%>
+    <p>Upload Cover Art:<br/>
+    <%= cover_image.file_field(:uploaded_data) %></p>
+  <% end -%>
+
+  <%= submit_tag %>
+<% end -%>

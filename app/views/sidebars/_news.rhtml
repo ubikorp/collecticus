@@ -1,0 +1,11 @@
+  <div class="sideshadow">
+    <div class="sideblock">
+      <div class="feedTitle">Elsewhere...</div>
+      <ul>
+        <% FeedArticle.recent_articles(App::Config.sidebar_news_size).each do |article| -%>
+          <li><%= link_to(article.title, article.link) %></li>
+        <% end -%>
+        <li style="display: none"></li>
+      </ul>
+    </div>
+  </div>

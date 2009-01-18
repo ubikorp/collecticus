@@ -1,0 +1,23 @@
+quentin_green_lantern_20:
+  id: 1
+  rating: 3
+  created_at: <%= 2.days.ago.to_s :db %>
+  rateable_type: Book
+  rateable_id: 4
+  user_id: 1
+
+aaron_green_lantern_20:
+  id: 2
+  rating: 5
+  created_at: <%= 20.hours.ago.to_s :db %>
+  rateable_type: Book
+  rateable_id: 4
+  user_id: 2
+
+aaron_green_lantern_21:
+  id: 3
+  rating: 5
+  created_at: <%= 19.hours.ago.to_s :db %>
+  rateable_type: Book
+  rateable_id: 9
+  user_id: 2

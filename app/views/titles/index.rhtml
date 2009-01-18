@@ -1,0 +1,25 @@
+<% unless @page_number.to_i > 1 -%>
+  <div class="book-series">
+    <div class="infobox">
+      <div class="thumbnail"><%= latest_cover_image_with_link(@publisher, :md) %></div>
+    </div>
+    <div class="title"><%= link_to("One-Shots, Specials &amp; Trades", comic_books_path(@publisher)) %></div>
+    <div class="details">
+      <div class="publisher-name">Publisher: <%=h @publisher.name %></div>
+      <div class="total-number">Total Number Indexed: <%=h @publisher.solobooks.count %></div>
+      <% if logged_in? -%>
+        <div class="total-collected">Number In Your Collection: <%=h @publisher.solobooks.collected_by(current_user).length %></div>
+      <% end -%>
+      <% if !@publisher.latest_solobook.nil? -%>
+        <div class="latest-issue">Most Recent: <%= link_to(@publisher.latest_solobook.name, comicbook_path(@publisher.latest_solobook)) %></div>
+      <% end -%>      
+    </div>
+  </div>
+<% end -%>
+
+<%= render(:partial => 'title', :collection => @titles) %>
+<%= render(:partial => "shared/paginate", :locals => { :collection => @titles }) %>
+
+<% if user_admin? -%>
+  <div class="admin-link"><%= link_to('&raquo; New Title', new_comic_title_path(@publisher)) %></div>
+<% end -%>
