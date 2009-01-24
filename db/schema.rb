@@ -10,12 +10,12 @@ ActiveRecord::Schema.define(:version => 20) do
     t.column "created_at",   :datetime
     t.column "updated_at",   :datetime
     t.column "published_on", :datetime
+    t.column "talent",       :string
     t.column "description",  :text
     t.column "type",         :string
     t.column "name",         :string
     t.column "permalink",    :string
     t.column "publisher_id", :integer
-    t.column "talent",       :string
   end
 
   create_table "books_users", :id => false, :force => true do |t|
