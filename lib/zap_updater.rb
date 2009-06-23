@@ -256,7 +256,7 @@ class ZapUpdater
       
       if model.cover_image.nil?
         # get cover image (if we don't have one already)
-        image_element = (doc/"img").select { |elem| elem.attributes['src'].match(/covers/) }
+        image_element = (doc/"img").select { |elem| elem.attributes['src'].match(/thumb/) }
         image_url = nil
         
         unless image_element.empty?
