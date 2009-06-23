@@ -261,7 +261,7 @@ class ZapUpdater
         
         unless image_element.empty?
           image_url = image_element[0].attributes['src']
-          image_url = "#{URL_Marvel}#{image_url.gsub(/^.*filename\=/,'').split('\'')[0]}" # full size art
+          image_url = "#{URL_Marvel}#{image_element[0].attributes['src'].gsub('_thumb', '_full')}" # full size art
         end
         
         get_cover_image(model, image_url)
