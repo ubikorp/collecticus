@@ -52,7 +52,7 @@ action_comics_854:
   talent: Ma Kent and Pa Kent.
   created_at: <%= 3.days.ago.to_s :db %>
   updated_at: <%= 3.days.ago.to_s :db %>
-  published_on: <%= Time.today %>
+  published_on: <%= Time.now %>
   publisher_id: 2
   type: Episode
 
