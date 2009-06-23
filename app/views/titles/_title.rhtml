@@ -14,7 +14,9 @@
       <div class="latest-issue">Current Issue: <%= link_to(title.latest_episode.name, comicbook_path(title.latest_episode)) %></div>
     <% end -%>
     
-    <div class="admin-link"><%= link_to('&raquo; Edit Title', edit_comic_title_path(title.publisher, title)) %></div>
-    <div class="admin-link"><%= link_to('&raquo; Delete Title', comic_title_path(title.publisher, title), :method => "delete", :confirm => "Are you sure? This will remove all books associated with this title!") %></div>
+    <% if user_admin? -%>
+      <div class="admin-link"><%= link_to('&raquo; Edit Title', edit_comic_title_path(title.publisher, title)) %></div>
+      <div class="admin-link"><%= link_to('&raquo; Delete Title', comic_title_path(title.publisher, title), :method => "delete", :confirm => "Are you sure? This will remove all books associated with this title!") %></div>
+    <% end -%>
   </div>
 </div>
