@@ -51,7 +51,7 @@ namespace :collecticus do
         }
         done << p
         sleep(2)
+      end
     end
   end
 end
-

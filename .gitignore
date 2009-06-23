@@ -2,3 +2,6 @@ log/*.log
 tmp/**/*
 doc/api
 doc/app
+config/database.yml
+public/images/art/**/*
+public/images/logos/**/*
