@@ -3,7 +3,7 @@
   <ul>
     <% if collection.previous_page? -%>
       <li class="nextpage">
-        <%= link_to '&#171;', { :page => collection.previous_page } %>
+        <%= link_to '&#171;', request.request_uri.gsub(/\?page=.*/, '') + "?page=#{collection.previous_page}" %>
       </li>
     <% else -%>
       <li class="disablepage">&#171;</li>
@@ -15,7 +15,7 @@
         <li class="currentpage"><%= n %></li>
       <% else -%>
         <li><%= "..." if last_page+1 < n %>
-          <%= link_to n, :id => params[:id], :page => n %>
+          <%= link_to n, request.request_uri.gsub(/\?page=.*/, '') + "?page=#{n}" %>
         </li>
       <% end -%>
       <% last_page = n -%>
@@ -23,7 +23,7 @@
 
     <% if collection.next_page? -%>
       <li class="nextpage">
-        <%=  link_to '&#187;', { :page => collection.next_page } %>
+        <%= link_to '&#187;', request.request_uri.gsub(/\?page=.*/, '') + "?page=#{collection.next_page}" %>
       </li>
     <% else -%>
       <li class="disablepage">&#187;</li>
